@@ -24,7 +24,7 @@ function App() {
   const [gastoEditar,setGastoEditar] = useState({})
 
   const [filtro,setFiltro] = useState("")
-  const [gastosFiltrafosfiltro,setGastosFiltrados] = useState([])
+  const [gastosFiltrados,setGastosFiltrados] = useState([])
   //useEffect que escuchara por los cambios en gastoEditar
   useEffect(() => {
     if(Object.keys(gastoEditar).length > 0){
@@ -46,7 +46,7 @@ function App() {
   //useEffect que escucha cuando haya algo en filtro
   useEffect(() => {
     if(filtro) {
-      const gastosFiltrados = gastos.filter( gasto => gasto.categoria === filtro)
+      const gastosFiltrados = gastos.filter( gasto => gasto.categoria === filtro)//Nos retorna el arreglo gastos filtrado con la categoria que seleccionamos en el filtro
       setGastosFiltrados(gastosFiltrados)
     }
   }, [filtro])
@@ -96,6 +96,7 @@ function App() {
     <div className={modal ? "fijar" : ""}>
       <Header 
         gastos={gastos}
+        setGastos={setGastos}
         presupuesto={presupuesto}
         setPresupuesto={setPresupuesto}
         isValidPresupuesto={isValidPresupuesto}
@@ -113,7 +114,7 @@ function App() {
               setGastoEditar={setGastoEditar}
               eliminarGasto={eliminarGasto}
               filtro={filtro}
-              gastosFiltrados={gastosFiltrafosfiltro}
+              gastosFiltrados={gastosFiltrados}
           />
         </main>
         <div className='nuevo-gasto'>
