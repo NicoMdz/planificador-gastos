@@ -56,7 +56,7 @@ function App() {
     if(presupuestoLS > 0) {
       setIsValidPresupuesto(true)//para que nos mantenga en el mismo panel sin regresar a la pantalla principal
     }
-  })
+  }, [])
   
   const handleNuevoGasto = () => {
     setModal(true)

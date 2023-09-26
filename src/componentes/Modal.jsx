@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react"
+import { useState,useEffect, useRef } from "react"
 import Mensaje from "./Mensaje"
 import CerrarBtn from "../img/cerrar.svg"
 
@@ -37,6 +37,9 @@ const Modal = ({
     }, 500);
   };
 
+  //Para que solo puedas hacer click una vez en el boton y no se creen multiples tareas
+  const buttonSubmit = useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -53,6 +56,10 @@ const Modal = ({
       }, 3000);
       return;
     }
+    //Deshabilitar el boton una vez que se le haga click la primera vez
+    if(buttonSubmit.current){
+      buttonSubmit.current.setAttribute("disabled", "disabled");       
+      }
     //Si pasamos las validaciones, creame un objeto con la info
     guardarGasto({ nombre, cantidad, categoria, id, fecha });
   };
@@ -108,6 +115,7 @@ const Modal = ({
           </select>
         </div>
         <input 
+            ref={buttonSubmit}
             type="submit" 
             value={gastoEditar.nombre ? "Guardar Cambios" : "Añadir Gasto"} 
         />
