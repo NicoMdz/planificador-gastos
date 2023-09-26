@@ -67,6 +67,11 @@ header h1 {
         width: 60rem;
     }
 }
+@media (max-width: 768px) {
+    .formulario input{
+        width: 100%;
+    }
+}
 .formulario legend {
     font-size: 3.6rem;
     text-align: center;
@@ -383,6 +388,17 @@ body .modal {
 
 .modal label {
     text-align: left;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        position: absolute;
+        background-color: rgb(0 0 0 / 0.92);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 }
 
 .CircularProgressbar .CircularProgressbar-text {
