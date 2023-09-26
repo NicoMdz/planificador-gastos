@@ -362,6 +362,13 @@ main {
     width: 100%;
 }
 
+@media (max-width: 480px) {
+    .modal .cerrar-modal img {
+        position: absolute;
+        z-index: 2;
+    }
+ }
+
 .modal .formulario {
     max-width: 80rem;
     width: 40rem;
@@ -388,17 +395,6 @@ body .modal {
 
 .modal label {
     text-align: left;
-}
-
-@media (max-width: 768px) {
-    .modal {
-        position: absolute;
-        background-color: rgb(0 0 0 / 0.92);
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
 }
 
 .CircularProgressbar .CircularProgressbar-text {
